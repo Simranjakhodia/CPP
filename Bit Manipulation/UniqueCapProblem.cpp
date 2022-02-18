@@ -52,7 +52,7 @@ void countWays(int n) {
             capList[x].push_back(i);
         }
     }
-    allmask = (1 << n) - 1 ;// set all n bits as 10
+    allmask = (1 << n) - 1 ;// set all n bits as 1
     
     // Initialize all entries in dp as -1
     memset(dp, -1, sizeof dp);
