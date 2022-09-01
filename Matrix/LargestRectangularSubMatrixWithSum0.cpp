@@ -27,8 +27,8 @@ class Solution{
                   sum += v[k];
                   
                   if(mp.count(sum)) {
-                      if((k - mp[sum]) > (rightv - leftv + 1)) {
-                          rightv = k;
+                      if((k - mp[sum]) > (rightv - leftv )) {
+                          rightv = k+1;
                           leftv = mp[sum]+1;
                       }
                   }
@@ -36,18 +36,18 @@ class Solution{
                         mp[sum] = k;
               }
               
-              if((j - i + 1)*(rightv - leftv + 1) > (right - left + 1) * (down - up + 1)) {
+              if((j - i + 1)*(rightv - leftv) > (right - left) * (down - up)) {
                   up = leftv;
                   down = rightv;
                   left = i;
-                  right = j;
+                  right = j+1;
               }
           }
       }
       vector<vector<int>> res;
-      for(int i = up; i <= down; i++) {
+      for(int i = up; i < down; i++) {
           vector<int> arr;
-          for(int j = left; j <= right; j++) {
+          for(int j = left; j < right; j++) {
               arr.push_back(a[i][j]);
           }
           res.push_back(arr);
@@ -55,7 +55,4 @@ class Solution{
       return res;
   }
 };
-
-
-
 
